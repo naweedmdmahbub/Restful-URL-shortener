@@ -19,7 +19,6 @@ class AuthService
 
         // Generate token
         return [
-            'token' => $user->createToken('MyApp')->plainTextToken,
             'name' => $user->name,
         ];
     }
