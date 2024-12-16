@@ -28,17 +28,10 @@ class AuthController extends BaseController
     }
 
     // Method to handle user logout and token revocation
-    public function logout(Request $request)
+    public function logout(Request $request): JsonResponse
     {
-        // return 'hi';
-		// return response()->json(['message' => 'logged out.'], 200);
-        
 		// Revoke all tokens...
 		$request->user()->tokens()->delete();
-
-		// // Revoke the current token
-		$request->user()->currentAccessToken()->delete();
-
 		return response()->json(['message' => 'You have been successfully logged out.'], 200);
     }
 }
